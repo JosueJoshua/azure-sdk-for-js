@@ -810,6 +810,7 @@ export const ClearRange: coreHttp.CompositeMapper = {
 };
 
 export const ShareSmbSettings: coreHttp.CompositeMapper = {
+  xmlName: "SMB",
   serializedName: "ShareSmbSettings",
   type: {
     name: "Composite",
@@ -828,6 +829,7 @@ export const ShareSmbSettings: coreHttp.CompositeMapper = {
 };
 
 export const ShareProtocolSettings: coreHttp.CompositeMapper = {
+  xmlName: "ProtocolSettings",
   serializedName: "ShareProtocolSettings",
   type: {
     name: "Composite",

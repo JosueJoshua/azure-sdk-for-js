@@ -11,7 +11,7 @@
 import * as coreHttp from "@azure/core-http";
 
 const packageName = "azure-storage-file-share";
-const packageVersion = "12.4.2";
+const packageVersion = "12.5.0";
 
 export class StorageClientContext extends coreHttp.ServiceClient {
   version: string;
@@ -20,15 +20,11 @@ export class StorageClientContext extends coreHttp.ServiceClient {
 
   /**
    * Initializes a new instance of the StorageClientContext class.
-   * @param version Specifies the version of the operation to use for this request.
    * @param url The URL of the service account, share, directory or file that is the target of the
    * desired operation.
    * @param [options] The parameter options
    */
-  constructor(version: string, url: string, options?: coreHttp.ServiceClientOptions) {
-    if (version == undefined) {
-      throw new Error("'version' cannot be null.");
-    }
+  constructor(url: string, options?: coreHttp.ServiceClientOptions) {
     if (url == undefined) {
       throw new Error("'url' cannot be null.");
     }
@@ -44,10 +40,10 @@ export class StorageClientContext extends coreHttp.ServiceClient {
 
     super(undefined, options);
 
-    this.fileRangeWriteFromUrl = "update";
+    this.version = '2020-06-12';
+    this.fileRangeWriteFromUrl = 'update';
     this.baseUri = "{url}";
     this.requestContentType = "application/json; charset=utf-8";
-    this.version = version;
     this.url = url;
   }
 }
